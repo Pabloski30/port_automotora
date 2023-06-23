@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotora</title>
+    <!--link a CSS-->
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'core/css/style.css'%}">
+    <!--box icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+
+</head>
+<body>
+    <!--navbar-->
+    <header>
+        <!--nav container-->
+        <div class="nav container">
+            <!--Icono menu-->
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <!--Logo-->
+            <a href="" class="logo">Auto<span>motora</span></a>
+            <!--Nav list-->
+            <ul class="navbar">
+                <li><a href="{% url 'home' %}" class="active">Inicio</a></li>
+                <li><a href="#autos">Autos</a></li>
+                <li><a href="#partes">Piezas</a></li>
+                <li><a href="#blog">Nuestro blog</a></li>
+                <li><a href="{% url 'formulario' %}">R.auto</a></li>
+                {%if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'logout' %}">cerrar sesion</a>
+                </li>
+                <li>
+                    <a href="#">@{{user.username}}</a>
+                </li>
+                {% else %} 
+                <li>
+                    <a href="{% url 'login' %}">iniciar sesion</a>
+                </li>
+                <li>
+                    <a href="{% url 'registro' %}">Registrate</a>
+                </li>
+                {% endif %}
+                
+            
+            </ul>
+            <!--Icono buscar-->
+            <i class='bx bx-search' id="search-icon"></i>
+            <!--box buscar-->
+            <div class="search-box container">
+                <input type="search" placeholder="Busca aqui...">
+            </div>
+        </div>
+    </header>
+    <!--home/inicio-->
+    <section class="inicio" id="inicio">
+        <div class="inicio-text">
+            <h1>Tenemos todo <br>Lo que tu <span> Auto</span> Necesita</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur <br>adipisicing elit. Itaque, eum. </p>
+            <!-- boton home/inicio-->
+            <a href="#" class="btn">Descubre ahora</a>
+        </div>
+    </section>
+    <div class="contenido">
+        {% block contenido %}
+        {% endblock contenido %}
+    </div>
+    <!--seccion autos-->
+    <section class="autos" id="autos">
+        <div class="heading">
+            <span>Todos los autos</span>
+            <h2>Tenemos todo tipo de autos</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, odit. Sint quis quisquam tempore amet.</p>
+        </div>
+        <!--contenedor autos-->
+        <div class="slider">
+            <div class="slider">
+                
+                <div class="slider-arrow left">&larr;</div>
+                <!-- Aquí van los slides -->
+                <div class="slide">
+                    <img src="{% static 'core/img/car1.jpg' %}" alt="Imagen 1">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'core/img/car2.jpg'%}" alt="Imagen 2">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'core/img/car3.jpg'%}" alt="Imagen 3">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'core/img/car4.jpg'%}" alt="Imagen 4">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'core/img/car5.jpg'%}" alt="Imagen 5">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'core/img/car6.jpg'%}" alt="Imagen 5">
+                </div>
+                <!-- Fin de los slides -->
+                <div class="slider-arrow right">&rarr;</div>
+            </div>
+    </section>
+    <!--acerca de-->
+    <section class="about" id="#acerca" about>
+        <div class="about-img">
+            <img src="{% static 'core/img/about.png'%}" alt="">
+        </div>
+        <div class="about-text">
+            <span>Acerca de Nosotros</span>
+            <h2>Precios Baratos con <br>Coches de Calidad</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur animi rerum ullam dignissimos consectetur obcaecati.</p>
+            <!--acerca de: boton-->
+            <a href="#" class="btn">Ver mas</a>
+        </div>
+    </section>
+    <!--seccion partes-->
+    <section class="partes" id="partes">
+        <div class="heading">
+            <span>Lo que ofrecemos</span>
+            <h2>Nuestro coche siempre es excelente</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, deleniti?</p>
+        </div>
+        <!--container  partes-->
+        <div class="partes-container">
+            <!--box 1-->
+            <div class="box">
+                <img src="{% static 'core/img/part1.png'%}" alt="">
+                <h3>Auto Spare parts</h3>
+                <span>$120.99</span>
+                <i class='bx bxs-star'>(6 reviews)</i>
+                <a href="#" class="btn">Compra Ahora</a>
+                <a href="#" class="details">Ver Detalles</a>
+            </div>
+            <!--box 2-->
+            <div class="box">
+                <img src="{% static 'core/img/part2.png'%}" alt="">
+                <h3>Auto Spare parts</h3>
+                <span>$120.99</span>
+                <i class='bx bxs-star'>(6 reviews)</i>
+                <a href="#" class="btn">Compra Ahora</a>
+                <a href="#" class="details">Ver Detalles</a>
+            </div>
+            <!--box 3-->
+            <div class="box">
+                <img src="{% static 'core/img/part3.png'%}" alt="">
+                <h3>Auto Spare parts</h3>
+                <span>$120.99</span>
+                <i class='bx bxs-star'>(6 reviews)</i>
+                <a href="#" class="btn">Compra Ahora</a>
+                <a href="#" class="details">Ver Detalles</a>
+            </div>
+            <!--box 4-->
+            <div class="box">
+                <img src="{% static 'core/img/part4.png'%}" alt="">
+                <h3>Auto Spare parts</h3>
+                <span>$120.99</span>
+                <i class='bx bxs-star'>(6 reviews)</i>
+                <a href="#" class="btn">Compra Ahora</a>
+                <a href="#" class="details">Ver Detalles</a>
+            </div>
+            <!--box 5-->
+            <div class="box">
+                <img src="{% static 'core/img/part5.png'%}" alt="">
+                <h3>Auto Spare parts</h3>
+                <span>$120.99</span>
+                <i class='bx bxs-star'>(6 reviews)</i>
+                <a href="#" class="btn">Compra Ahora</a>
+                <a href="#" class="details">Ver Detalles</a>
+            </div>
+            <!--box 6-->
+            <div class="box">
+                <img src="{% static 'core/img/part6.png'%}" alt="">
+                <h3>Auto Spare parts</h3>
+                <span>$120.99</span>
+                <i class='bx bxs-star'>(6 reviews)</i>
+                <a href="#" class="btn">Compra Ahora</a>
+                <a href="#" class="details">Ver Detalles</a>
+            </div>
+        </div>
+    </section>
+    <!--contenedor blog-->
+    <section class="blog" id="blog">
+        <div class="heading">
+            <span>Nuestro Blog y Noticias</span>
+            <h2>El Contenido de Nuestro Blog </h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, deleniti?</p>
+        </div>
+        <!--contenedor blog-->
+        <div class="blog-container container">
+            <!--Box 1-->
+            <div class="box">
+                <img src="{% static 'core/img/car1.jpg' %}" alt="">
+                <span> 14 Feb 2021</span>
+                <h3>Como Conseguir un Coche Perfecto a Bajo Costo </h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam, temporibus?</p>
+                <a href="#" class="blog-btn">Leer Mas<i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+            <!--Box 2-->
+            <div class="box">
+                <img src="{% static 'core/img/car4.jpg' %}" alt="">
+                <span> 14 Feb 2021</span>
+                <h3>Como Conseguir un Coche Perfecto a Bajo Costo </h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam, temporibus?</p>
+                <a href="#" class="blog-btn">Leer Mas<i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+            <!--Box 3-->
+            <div class="box">
+                <img src="{%static 'core/img/car3.jpg'%}" alt="">
+                <span> 14 Feb 2021</span>
+                <h3>Como Conseguir un Coche Perfecto a Bajo Costo </h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam, temporibus?</p>
+                <a href="#" class="blog-btn">Leer Mas<i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+        </div>
+    </section>
+</section>
+
+    <!--footer-->
+    <section class="footer">
+        <div class="footer-container container">
+            <div class="footer-box">
+                <a href="#" class="logo">Auto<span>motora</span></a>
+                <div class="social">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-youtube'></i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-box">
+            <h3>Page</h3>
+            <a href="#">Inicio</a>
+            <a href="#">Autos</a> 
+            <a href="#">Partes</a> 
+            <a href="#">Ventas</a> 
+        </div>
+        <div class="footer-box">
+            <h3>Legal</h3>
+            <a href="#">Privacidad</a>
+            <a href="#">Politica de Reembolso</a> 
+            
+        </div>
+        <div class="footer-box">
+            <h3>Contacto</h3>
+            <p>Estados Unidos</p>
+            <p>Chile</p>
+            <p>Alemania</p>
+        </div>   
+    </section>
+    <!--Copiright-->
+    <div class="copyright">
+        <p>&#169; Todos los Derechos Reservados</p>
+    </div>
+    <!--link a js-->
+    <script src="{% static 'core/js/main.js'%}"></script>
+</body>
+</html>
