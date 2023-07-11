@@ -2,7 +2,7 @@ Proyecto Automotora
 Pablo Loaiza
 
 Link repositorio github:
-https://github.com/Pabloski30/P_automotora.git
+https://github.com/Pabloski30/Automotora.git
 
 
 
